@@ -21,6 +21,21 @@
         "webpack": "^4.40.2",
         "webpack-cli": "^3.3.9"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Zenoo/react-append-head.git"
+    },
+    "keywords": [
+        "react",
+        "component",
+        "append",
+        "head"
+    ],
+    "author": "Zenoo",
+    "bugs": {
+        "url": "https://github.com/Zenoo/react-append-head/issues"
+    },
+    "homepage": "https://github.com/Zenoo/react-append-head",
     "standard-version": {
         "types": [
             {
