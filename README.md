@@ -64,5 +64,5 @@ Example:
 <!-- The `order` attribute is not present, this script will be loaded without waiting for any other -->
 <script name='whatever' src='whatever.min.js'></script>
 <!-- The `order` attribute is present, this script will be loaded after every other script with an order lower than him -->
-<script name='bootstrap' src='bootstrap.min.js'></script>
+<script name='bootstrap' src='bootstrap.min.js' order="1"></script>
 ```
