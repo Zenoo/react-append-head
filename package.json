@@ -1,0 +1,60 @@
+{
+    "name": "react-append-head",
+    "version": "0.0.1",
+    "description": "React Component that allows you to append JS & CSS files to the page's head tag",
+    "main": "./lib/AppendHead.js",
+    "license": "MIT",
+    "scripts": {
+        "build": "webpack",
+        "release": "standard-version"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.5",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "path": "^0.12.7",
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0",
+        "standard-version": "^7.0.0",
+        "webpack": "^4.40.2",
+        "webpack-cli": "^3.3.9"
+    },
+    "standard-version": {
+        "types": [
+            {
+                "type": "feat",
+                "section": "Features"
+            },
+            {
+                "type": "fix",
+                "section": "Bug Fixes"
+            },
+            {
+                "type": "chore",
+                "hidden": true
+            },
+            {
+                "type": "docs",
+                "section": "Documentation"
+            },
+            {
+                "type": "style",
+                "section": "Visual updates"
+            },
+            {
+                "type": "refactor",
+                "section": "Refactoring"
+            },
+            {
+                "type": "perf",
+                "section": "Performance"
+            },
+            {
+                "type": "test",
+                "section": "Tests"
+            }
+        ]
+    }
+}
