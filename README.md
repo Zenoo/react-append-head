@@ -66,3 +66,13 @@ Example:
 <!-- The `order` attribute is present, this script will be loaded after every other script with an order lower than him -->
 <script name='bootstrap' src='bootstrap.min.js' order="1"></script>
 ```
+
+## Debug
+
+You can add the `debug` prop to `AppendHead` to see what's going on in the console.
+
+```jsx
+<AppendHead debug>
+  ...
+</AppendHead>
+```

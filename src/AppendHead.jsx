@@ -22,7 +22,10 @@ class AppendHead extends React.Component {
       }
     })).sort((a, b) => a.order - b.order > 0 ? 1 : a.order - b.order < 0 ? -1 : 0);
 
+    if(this.props.debug) console.log('[react-append-head] Workload: ', toCarry);
+
     toCarry.forEach((child) => {
+      if(this.props.debug) console.log('[react-append-head] Processing: ', child);
       if(!document.querySelector(`${child.type}[name='${child.attributes.name}']`)){
         const element = document.createElement(child.type);
 
@@ -32,9 +35,13 @@ class AppendHead extends React.Component {
 
         if(child.order >= 0){
           this.queue.push(element);
+          if(this.props.debug) console.log('[react-append-head] Ressource added to queue.');
         }else{
           document.head.insertAdjacentElement('beforeend', element);
+          if(this.props.debug) console.log('[react-append-head] Ressource injected.');
         }
+      }else{
+        if(this.props.debug) console.log('[react-append-head] Ressource was already loaded. Skipping.');
       }
     });
 
@@ -43,11 +50,14 @@ class AppendHead extends React.Component {
 
   processQueue(){
     if(this.queue.length){
-      this.queue[0].onload = () => {
+      if(this.props.debug) console.log(`[react-append-head] Processing ${this.queue.length} queued elements.`);
+      this.queue[0].addEventListener('load', () => {
+        if(this.props.debug) console.log('[react-append-head] Ressource loaded: ', this.queue[0]);
         this.queue.shift();
         this.processQueue();
-      }
+      });
 
+      if(this.props.debug) console.log('[react-append-head] Ressource injected: ', this.queue[0]);
       document.head.insertAdjacentElement('beforeend', this.queue[0]);
     }
   }
