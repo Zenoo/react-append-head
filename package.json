@@ -1,6 +1,6 @@
 {
     "name": "react-append-head",
-    "version": "0.0.8",
+    "version": "1.0.0",
     "description": "React Component that allows you to append JS & CSS files to the page's head tag",
     "main": "./lib/AppendHead.js",
     "license": "MIT",

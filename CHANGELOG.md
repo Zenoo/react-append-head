@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/Zenoo/react-append-head/compare/v0.0.8...v1.0.0) (2019-10-01)
+
+
+### Features
+
+* Ressources with the same order are now loaded async ([53e1b0e](https://github.com/Zenoo/react-append-head/commit/53e1b0e))
+
 ### [0.0.8](https://github.com/Zenoo/react-append-head/compare/v0.0.7...v0.0.8) (2019-10-01)
 
 
