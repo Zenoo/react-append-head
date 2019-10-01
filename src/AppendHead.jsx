@@ -73,9 +73,10 @@ class AppendHead extends React.Component {
    */
   processQueue(){
     if(this.queue.length){
-      if(this.props.debug) console.log(`[react-append-head] Processing ${this.queue.length} queued elements.`);
+      if(this.props.debug) console.log(`[react-append-head] The queue has ${this.queue.length} queued elements.`);
       
       const toProcess = this.queue.filter(a => a.order == this.queue[0].order);
+      if(this.props.debug) console.log(`[react-append-head] Processing ${toProcess.length} elements: `, toProcess);
       const processed = [];
       toProcess.forEach(ressource => {
         const ressourceLoaded = new Promise(resolve => {
