@@ -95,6 +95,8 @@ class AppendHead extends React.Component {
         this.queue.splice(0, toProcess.length);
         this.processQueue();
       });
+    }else{
+      if(this.props.onLoad) this.props.onLoad();
     }
   }
 
