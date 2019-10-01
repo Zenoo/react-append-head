@@ -53,12 +53,19 @@ class AppendHead extends React.Component {
           }
         });
 
+        element.setAttribute('loading', true);
+
         if(child.order >= 0){
           this.queue.push(element);
-          if(this.props.debug) console.log('[react-append-head] Ressource added to queue.');
+          if(this.props.debug) console.log('[react-append-head] Ressource added to queue: ', element);
         }else{
+          element.addEventListener('load', () => {
+            element.removeAttribute('loading');
+            if(this.props.debug) console.log('[react-append-head] Ressource loaded: ', element);
+          });
+
           document.head.insertAdjacentElement('beforeend', element);
-          if(this.props.debug) console.log('[react-append-head] Ressource injected.');
+          if(this.props.debug) console.log('[react-append-head] Ressource injected: ', element);
         }
       }else{
         if(this.props.debug) console.log('[react-append-head] Ressource was already loaded. Skipping.');
@@ -81,6 +88,7 @@ class AppendHead extends React.Component {
       toProcess.forEach(ressource => {
         const ressourceLoaded = new Promise(resolve => {
           ressource.addEventListener('load', () => {
+            ressource.removeAttribute('loading');
             if(this.props.debug) console.log('[react-append-head] Ressource loaded: ', ressource);
             resolve();
           });
