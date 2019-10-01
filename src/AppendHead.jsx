@@ -1,16 +1,33 @@
 import React from 'react';
 
+/**
+ * Component used to load ressources into the `<head>` tag
+ */
 class AppendHead extends React.Component {
+  /**
+   * Initialize the Component
+   * @param {Object} props 
+   */
   constructor(props) {
     super(props);
 
+    /**
+     * 
+     * @type {Array}
+     */
     this.queue = [];
   }
 
+  /**
+   * React lifecycle
+   */
   componentDidMount(){
     this.carryChildren();
   }
 
+  /**
+   * Load ressources into the `<head>` tag
+   */
   carryChildren(){
     const children = this.props.children;
 
@@ -48,20 +65,38 @@ class AppendHead extends React.Component {
     this.processQueue();
   }
 
+  /**
+   * Process the ressources queue
+   */
   processQueue(){
     if(this.queue.length){
       if(this.props.debug) console.log(`[react-append-head] Processing ${this.queue.length} queued elements.`);
-      this.queue[0].addEventListener('load', () => {
-        if(this.props.debug) console.log('[react-append-head] Ressource loaded: ', this.queue[0]);
-        this.queue.shift();
-        this.processQueue();
+      
+      const toProcess = this.queue.filter(a => a.order == this.queue[0].order);
+      const processed = [];
+      toProcess.forEach(ressource => {
+        const ressourceLoaded = new Promise(resolve => {
+          ressource.addEventListener('load', () => {
+            if(this.props.debug) console.log('[react-append-head] Ressource loaded: ', ressource);
+            resolve();
+          });
+        });
+        processed.push(ressourceLoaded);
+        
+        if(this.props.debug) console.log('[react-append-head] Ressource injected: ', this.queue[0]);
+        document.head.insertAdjacentElement('beforeend', ressource);
       });
 
-      if(this.props.debug) console.log('[react-append-head] Ressource injected: ', this.queue[0]);
-      document.head.insertAdjacentElement('beforeend', this.queue[0]);
+      Promise.all(processed).then(() => {
+        this.queue.splice(0, toProcess.length);
+        this.processQueue();
+      });
     }
   }
 
+  /**
+   * Component rendering
+   */
   render() {
     return (null);
   }
