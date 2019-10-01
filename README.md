@@ -67,6 +67,16 @@ Example:
 <script name='bootstrap' src='bootstrap.min.js' order="1"></script>
 ```
 
+## onLoad
+
+You can add a callback via the `onLoad` prop on `AppendHead` to execute some code after every queued ressource has been loaded.
+
+```jsx
+<AppendHead onLoad={...}>
+  ...
+</AppendHead>
+```
+
 ## Debug
 
 You can add the `debug` prop to `AppendHead` to see what's going on in the console.
