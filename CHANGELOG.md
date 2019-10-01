@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/Zenoo/react-append-head/compare/v0.0.7...v0.0.8) (2019-10-01)
+
+
+### Bug Fixes
+
+* Forgot to build the latest version ([0b2f9a7](https://github.com/Zenoo/react-append-head/commit/0b2f9a7))
+
 ### [0.0.7](https://github.com/Zenoo/react-append-head/compare/v0.0.6...v0.0.7) (2019-10-01)
 
 
