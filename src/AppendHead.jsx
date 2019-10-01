@@ -49,7 +49,7 @@ class AppendHead extends React.Component {
         Object.entries(child.attributes).forEach(([attribute, value]) => {
           if(attribute == 'onLoad') element.addEventListener('load', value);
           else{
-            if(attribute != 'order') element.setAttribute(attribute, value);
+            element.setAttribute(attribute, value);
           }
         });
 
@@ -75,7 +75,7 @@ class AppendHead extends React.Component {
     if(this.queue.length){
       if(this.props.debug) console.log(`[react-append-head] The queue has ${this.queue.length} queued elements.`);
       
-      const toProcess = this.queue.filter(a => a.order == this.queue[0].order);
+      const toProcess = this.queue.filter(a => a.getAttribute('order') == this.queue[0].getAttribute('order'));
       if(this.props.debug) console.log(`[react-append-head] Processing ${toProcess.length} elements: `, toProcess);
       const processed = [];
       toProcess.forEach(ressource => {
