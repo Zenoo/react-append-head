@@ -47,7 +47,10 @@ class AppendHead extends React.Component {
         const element = document.createElement(child.type);
 
         Object.entries(child.attributes).forEach(([attribute, value]) => {
-          if(attribute != 'order') element.setAttribute(attribute, value);
+          if(attribute == 'onLoad') element.addEventListener('load', value);
+          else{
+            if(attribute != 'order') element.setAttribute(attribute, value);
+          }
         });
 
         if(child.order >= 0){
