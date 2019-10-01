@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/Zenoo/react-append-head/compare/v1.0.3...v1.0.4) (2019-10-01)
+
+
+### Bug Fixes
+
+* Trigger own onLoad after job done ([dc8e4cd](https://github.com/Zenoo/react-append-head/commit/dc8e4cd))
+
 ### [1.0.3](https://github.com/Zenoo/react-append-head/compare/v1.0.2...v1.0.3) (2019-10-01)
 
 
