@@ -12,10 +12,15 @@ class AppendHead extends React.Component {
     super(props);
 
     /**
-     * 
+     * Ressource queue
      * @type {Array}
      */
     this.queue = [];
+    /**
+     * Ressources currently loading
+     * @type {Array}
+     */
+    this.loadingRessources = [];
   }
 
   /**
@@ -43,7 +48,8 @@ class AppendHead extends React.Component {
 
     toCarry.forEach((child) => {
       if(this.props.debug) console.log('[react-append-head] Processing: ', child);
-      if(!document.querySelector(`${child.type}[name='${child.attributes.name}']`)){
+      const ressourceAlreadyInPlace = document.querySelector(`${child.type}[name='${child.attributes.name}']`);
+      if(!ressourceAlreadyInPlace){
         const element = document.createElement(child.type);
 
         Object.entries(child.attributes).forEach(([attribute, value]) => {
@@ -68,7 +74,11 @@ class AppendHead extends React.Component {
           if(this.props.debug) console.log('[react-append-head] Ressource injected: ', element);
         }
       }else{
-        if(this.props.debug) console.log('[react-append-head] Ressource was already loaded. Skipping.');
+        if(ressourceAlreadyInPlace.hasAttribute('loading')){
+          this.loadingRessources.push(ressourceAlreadyInPlace);
+        }else{
+          if(this.props.debug) console.log('[react-append-head] Ressource was already loaded. Skipping.');
+        }
       }
     });
 
@@ -103,6 +113,23 @@ class AppendHead extends React.Component {
         this.queue.splice(0, toProcess.length);
         this.processQueue();
       });
+    }else{
+      this.endCheck();
+    }
+  }
+
+  /**
+   * Check for still loading ressources
+   */
+  endCheck(){
+    if(this.loadingRessources.length){
+      const interval = setInterval(() => {
+        this.loadingRessources = this.loadingRessources.filter(element => element.hasAttribute('loading'));
+        if(!this.loadingRessources.length){
+          clearInterval(interval);
+          if(this.props.onLoad) this.props.onLoad();
+        }
+      }, 100);
     }else{
       if(this.props.onLoad) this.props.onLoad();
     }
