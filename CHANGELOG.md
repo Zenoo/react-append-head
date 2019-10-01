@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/Zenoo/react-append-head/compare/v1.0.1...v1.0.2) (2019-10-01)
+
+
+### Bug Fixes
+
+* Add debug for queued elements ([e03e41a](https://github.com/Zenoo/react-append-head/commit/e03e41a))
+
 ### [1.0.1](https://github.com/Zenoo/react-append-head/compare/v1.0.0...v1.0.1) (2019-10-01)
 
 
