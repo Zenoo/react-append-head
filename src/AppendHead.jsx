@@ -54,6 +54,7 @@ class AppendHead extends React.Component {
 
         Object.entries(child.attributes).forEach(([attribute, value]) => {
           if(attribute == 'onLoad') element.addEventListener('load', value);
+          else if(attribute == 'children') element.innerHTML = value;
           else{
             element.setAttribute(attribute, value);
           }
