@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.9](https://github.com/Zenoo/react-append-head/compare/v1.0.8...v1.0.9) (2019-10-07)
+
+
+### Bug Fixes
+
+* Manually trigger load event for inline scripts | fix [#3](https://github.com/Zenoo/react-append-head/issues/3) ([8efff15](https://github.com/Zenoo/react-append-head/commit/8efff15))
+
 ### [1.0.8](https://github.com/Zenoo/react-append-head/compare/v1.0.7...v1.0.8) (2019-10-07)
 
 
