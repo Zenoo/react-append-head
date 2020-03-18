@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.11](https://github.com/Zenoo/react-append-head/compare/v1.0.10...v1.0.11) (2020-03-18)
+
+
+### Bug Fixes
+
+* IE11 Object.entries polyfill ([f9ab10c](https://github.com/Zenoo/react-append-head/commit/f9ab10c))
+
 ### [1.0.10](https://github.com/Zenoo/react-append-head/compare/v1.0.9...v1.0.10) (2020-02-01)
 
 
