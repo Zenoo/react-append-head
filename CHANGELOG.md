@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.16](https://github.com/Zenoo/react-append-head/compare/v1.0.15...v1.0.16) (2021-03-31)
+
+
+### Bug Fixes
+
+* npm vulnerabilities ([ef93a22](https://github.com/Zenoo/react-append-head/commit/ef93a22a698a9e7dcab856c0f7fcb40432965cc1))
+
 ### [1.0.15](https://github.com/Zenoo/react-append-head/compare/v1.0.14...v1.0.15) (2021-03-31)
 
 
