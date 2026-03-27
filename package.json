@@ -18,7 +18,7 @@
         "react": "^16.9.0",
         "react-dom": "^16.9.0",
         "standard-version": "^9.1.1",
-        "webpack": "^4.40.2",
+        "webpack": "^5.105.4",
         "webpack-cli": "^3.3.9"
     },
     "repository": {
